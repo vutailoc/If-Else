@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trò chơi xe tank 2</title>
+</head>
+<body>
+    <div style="border: 19px; width: 190px; height: 190px; background-color: brown;">
+        <img src="tank-1.png" style="width: 19px; height: 19px; top: 0px; left: 0px; position: absolute;" id="xetank">
+        <img src="boom (1).png" style="width: 19px; height: 19px; top: 38px; left: 76px; position: absolute;" id = "boom">
+    </div>
+
+<script>
+    var valuetop
+    var valueleft
+    var boom = document.getElementById("boom")
+    var xetank = document.getElementById("xetank")
+document.addEventListener("keydown", function( event ){
+    let phimBam = event.code
+    if (phimBam == "ArrowUp") {
+        xetank.style.transform = "rotate(0deg)"
+       valuetop = xetank.style.top
+       valuetop = parseInt(valuetop)
+            if (valuetop > 0 ) {
+            valuetop = valuetop - 19
+            xetank.style.top = valuetop + "px"
+       }
+    }
+
+    else if (phimBam == "ArrowDown"){
+        xetank.style.transform = "rotate(180deg)"
+        valuetop = xetank.style.top
+        valuetop = parseInt(valuetop)
+            if (valuetop <= 171){
+                valuetop = valuetop +19
+                xetank.style.top = valuetop + "px"
+            }
+    }
+    else if (phimBam == "ArrowLeft"){
+        xetank.style.transform = "rotate(270deg)"
+        valueleft = xetank.style.left
+        valueleft = parseInt(valueleft)
+            if (valueleft > 0){
+                valueleft = valueleft - 19
+                xetank.style.left = valueleft +"px"
+            }
+    }
+    else if (phimBam == "ArrowRight"){
+        xetank.style.transform = "rotate(90deg)"
+        valueleft = xetank.style.left
+        valueleft = parseInt(valueleft)
+            if (valueleft <=171){
+                valueleft = valueleft + 19
+                xetank.style.left = valueleft + "px"
+            }
+    }
+        if (valuetop > 19 && valuetop < 57 && valueleft >57 && valueleft < 95) {
+            boom.src="no.png"
+            xetank.remove()
+        }
+} )
+</script>
+    
+</body>
+</html>
